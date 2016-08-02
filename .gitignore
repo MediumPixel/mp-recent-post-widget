@@ -1,6 +1,9 @@
 *.log
+<<<<<<< HEAD
 .DS_*
 .idea
+=======
+>>>>>>> d56ad894e2ca584d5c3631e7e565e473b29ca250
 wp-config.php
 wp-content/advanced-cache.php
 wp-content/backup-db/
