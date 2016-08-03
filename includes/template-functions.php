@@ -4,14 +4,14 @@
 
 	function mp_rpw_locate_template( $template_name ) {
 
-		$template_path = apply_filters( 'mp_rpw_template_dir', 'templates' );
+		$template_path = apply_filters( 'mp_rpw_template_dir', 'mp-widgets' );
 		$default_path  = apply_filters( 'mp_rpw_template_path', untrailingslashit( MP_RPW_PLUGIN_DIR ) . '/templates/' );
 
 		// Look within passed path within the theme - this is priority.
 		$template = locate_template(
 			array(
 				trailingslashit( $template_path ) . $template_name,
-				'mp-recent-post-widget-template-' . $template_name
+				'mp-widget-template-' . $template_name
 			)
 		);
 

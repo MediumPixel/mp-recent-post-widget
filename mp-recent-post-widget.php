@@ -16,9 +16,9 @@
 	defined( 'ABSPATH' ) or die( 'Keep Quit' );
 
 
-	if ( ! class_exists( 'MP_Recent_Post_Widget' ) ):
+	if ( ! class_exists( 'MP_Recent_Post_Widget_Init' ) ):
 
-		class MP_Recent_Post_Widget {
+		class MP_Recent_Post_Widget_Init {
 
 			public function __construct() {
 				$this->constants();
@@ -36,15 +36,22 @@
 				define( 'MP_RPW_PLUGIN_FILE', __FILE__ );
 			}
 
-
 			public function includes() {
 				include_once( 'includes/template-functions.php' );
 				include_once( 'includes/class-mp-recent-post-widget-settings.php' );
+				include_once( 'includes/class-mp-recent-post-widget.php' );
 			}
 
 			public function hooks() {
 				add_action( 'after_setup_theme', array( $this, 'setup_environment' ) );
 				add_action( 'init', array( $this, 'init' ), 0 );
+				add_action( 'widgets_init', array( $this, 'register_widgets' ) );
+			}
+
+			public function register_widgets() {
+				if ( class_exists( 'MP_Recent_Post_Widget' ) ) {
+					register_widget( 'MP_Recent_Post_Widget' );
+				}
 			}
 
 			public function init() {
@@ -72,6 +79,6 @@
 			}
 		}
 
-		new MP_Recent_Post_Widget();
+		new MP_Recent_Post_Widget_Init();
 
 	endif;

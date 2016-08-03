@@ -1,0 +1,34 @@
+/** Widget MP Recent Post */
+.mp-recent-post .mp-recent-post-wrapper .mp-recent-post {
+    margin-bottom : 35px;
+    }
+
+.mp-recent-post .mp-recent-post-wrapper .mp-recent-post-thumbnail {
+    margin-bottom : 10px;
+    }
+
+.mp-recent-post .mp-recent-post-wrapper .mp-recent-post-thumbnail img {
+    width : 100%;
+    }
+
+.mp-recent-post .mp-recent-post-wrapper .entry-meta {
+    font-size   : .9em;
+    color       : rgba(71, 71, 71, 0.7);
+    line-height : 1.5em;
+    margin      : 0;
+    }
+
+.mp-recent-post .mp-recent-post-wrapper .entry-meta ul {
+    margin     : 0;
+    list-style : none;
+
+    }
+
+.mp-recent-post .mp-recent-post-wrapper .entry-meta ul li {
+    padding-left : 0;
+    display      : inline-block;
+    }
+
+.widget_mp_recent_post .mp-recent-post-wrapper .entry-meta .post-author a {
+    margin-left : 5px;
+    }
