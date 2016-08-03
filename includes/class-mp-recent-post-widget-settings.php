@@ -103,7 +103,7 @@
 			}
 
 			public function section_info() {
-				echo '';
+				printf( __( 'After changing these settings you may need to <a target="_blank" href="%s">regenerate your thumbnails</a>.', 'mp-recent-post-widget' ), esc_url( 'https://wordpress.org/plugins/regenerate-thumbnails/' ) );
 			}
 
 			public function thumbnail_sizes_callback() {

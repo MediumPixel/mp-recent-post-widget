@@ -28,15 +28,13 @@
 						</div>
 					<?php endif; ?>
 
-					<div class="recent-post-elements">
+					<div class="mp-recent-post-elements">
 						<?php if ( $instance[ 'show_meta' ] ) : ?>
 							<div class="entry-meta">
 								<ul class="list-inline">
 									<li>
                                          <span class="post-date entry-date">
-                                             <?php
-	                                             the_date();
-                                             ?>
+	                                         <a href="<?php the_permalink(); ?>"><?php the_date(); ?></a>
                                          </span>
 									</li>
 									<li>

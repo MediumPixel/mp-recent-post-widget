@@ -12,10 +12,7 @@
     }
 
 .mp-recent-post .mp-recent-post-wrapper .entry-meta {
-    font-size   : .9em;
-    color       : rgba(71, 71, 71, 0.7);
-    line-height : 1.5em;
-    margin      : 0;
+    margin-bottom : 10px;
     }
 
 .mp-recent-post .mp-recent-post-wrapper .entry-meta ul {
