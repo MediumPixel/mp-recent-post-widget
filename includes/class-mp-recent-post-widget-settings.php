@@ -12,6 +12,11 @@
 				add_action( 'admin_menu', array( $this, 'add_menu' ) );
 				add_action( 'admin_init', array( $this, 'add_settings' ) );
 				add_filter( 'plugin_action_links_' . MP_RPW_PLUGIN_BASENAME, array( $this, 'settings_link' ), 999 );
+
+				$this->mp_recent_post_widget_options = get_option( 'mp_recent_post_widget_option', array(
+					'width'  => '300',
+					'height' => '200'
+				) );
 			}
 
 			public function settings_link( $links ) {
@@ -31,8 +36,8 @@
 
 				add_submenu_page(
 					'options-general.php',
-					'MP Recent Post Widget', // page_title
-					'MP Recent Post', // menu_title
+					esc_html__( 'MP Recent Post Widget', 'mp-recent-post-widget' ), // page_title
+					esc_html__( 'MP Recent Post', 'mp-recent-post-widget' ), // menu_title
 					'manage_options', // capability
 					MP_RPW_PLUGIN_DIRNAME, // menu_slug
 					array( $this, 'add_form' ) // function
@@ -40,15 +45,10 @@
 			}
 
 			public function add_form() {
-				$this->mp_recent_post_widget_options = get_option( 'mp_recent_post_widget_option', array(
-					'width'  => '300',
-					'height' => '200'
-				) ); ?>
-
+				?>
 				<div class="wrap">
-					<h2>MP Recent Post Widget</h2>
-					<p>Recent post widget thumbnail size settings</p>
-
+					<h2><?php echo esc_html( get_admin_page_title() ) ?></h2>
+					<p><?php esc_html_e( 'Recent post widget thumbnail size settings', 'mp-recent-post-widget' ) ?></p>
 					<form method="post" action="options.php">
 						<?php
 							settings_fields( 'mp_recent_post_widget_option_group' );
@@ -56,11 +56,11 @@
 							submit_button();
 						?>
 					</form>
-
 				</div>
 			<?php }
 
 			public function add_settings() {
+
 				register_setting(
 					'mp_recent_post_widget_option_group', // option_group
 					'mp_recent_post_widget_option', // option_name
@@ -129,12 +129,10 @@
 				);
 
 				if ( $disabled ) {
-					echo '<p><em>The settings of this image size have been disabled because its values are being overwritten by a filter.</em></p>';
+					echo '<p><em>' . esc_html__( 'The settings of this image size have been disabled because its values are being overwritten by a filter.', 'mp-recent-post-widget' ) . '</em></p>';
 				}
 			}
-
 		}
 
 		new MP_Recent_Post_Widget_Settings();
-
 	endif;
